@@ -1,0 +1,8 @@
+LIBRARY MoePluginTemplate
+EXPORTS
+GetIndexes		@1
+GetPluginName	@2	
+GetPluginInfo	@3
+OpenSetMenu		@4
+MoeCreateComplete	@5
+MoeBoxEvent		@6
