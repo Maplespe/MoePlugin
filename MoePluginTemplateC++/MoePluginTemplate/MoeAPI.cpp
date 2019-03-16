@@ -1,14 +1,14 @@
-// MoeAPI ¶¨ÒåÃÈ»¯Ïä¿ÉÓÃ¹¦ÄÜ½Ó¿Ú
+// MoeAPI å®šä¹‰èŒåŒ–ç®±å¯ç”¨åŠŸèƒ½æ¥å£
 #include "stdafx.h"
 #include "MoeAPI.h"
 #include "MoePluginTemplate.h"
 
 using  namespace std;
 
-string State = (char*)malloc(1024); //Èç¹ûÄãĞèÒªÈ¡±à¼­¿òµÄ·µ»ØÖµ ÇÒÎÄ±¾ºÜ³¤ºÜ³¤ Çëµ÷ÕûÕâÀïµÄ×Ö½Ú³¤¶È
+string State = (char*)malloc(1024); //å¦‚æœä½ éœ€è¦å–ç¼–è¾‘æ¡†çš„è¿”å›å€¼ ä¸”æ–‡æœ¬å¾ˆé•¿å¾ˆé•¿ è¯·è°ƒæ•´è¿™é‡Œçš„å­—èŠ‚é•¿åº¦
 string msgA;
 
-//µÈ´ıÃÈ»¯Ïä·µ»ØÖµ
+//ç­‰å¾…èŒåŒ–ç®±è¿”å›å€¼
 extern string SetState(void);
 
 
@@ -17,18 +17,18 @@ string SetState() {
 		Sleep(100); 
 	}
 	string num = State.data();
-	//MessageBoxA(MoeHwnd, (LPCSTR)State.data(), (LPCSTR)"·µ»ØÖµ", MB_ICONASTERISK);
+	//MessageBoxA(MoeHwnd, (LPCSTR)State.data(), (LPCSTR)"è¿”å›å€¼", MB_ICONASTERISK);
 	State = "-1";
 	return num;
 }
 
-/*MoeĞÅÏ¢¿ò-ÃÈ»¯ÏäĞÅÏ¢¿ò
-title - ĞÅÏ¢¿òµÄ±êÌâ
-msg - ĞÅÏ¢¿òÌáÊ¾ÄÚÈİ (²»ÄÜ³¬¹ı120¸öÖĞÎÄ×Ö·û)
-btn - ĞÅÏ¢¿ò°´Å¥ÀàĞÍ (1ÎªÊÇ·ñÅ¥ 2ÎªÈ·ÈÏÈ¡ÏûÅ¥ 3ÎªÖ»ÓĞÈ·ÈÏ°´Å¥)
-icon - ĞÅÏ¢¿òÏÔÊ¾µÄÍ¼±ê (1ÎªĞÅÏ¢Í¼±ê 2Îª´íÎóÍ¼±ê)
+/*Moeä¿¡æ¯æ¡†-èŒåŒ–ç®±ä¿¡æ¯æ¡†
+title - ä¿¡æ¯æ¡†çš„æ ‡é¢˜
+msg - ä¿¡æ¯æ¡†æç¤ºå†…å®¹ (ä¸èƒ½è¶…è¿‡120ä¸ªä¸­æ–‡å­—ç¬¦)
+btn - ä¿¡æ¯æ¡†æŒ‰é’®ç±»å‹ (1ä¸ºæ˜¯å¦é’® 2ä¸ºç¡®è®¤å–æ¶ˆé’® 3ä¸ºåªæœ‰ç¡®è®¤æŒ‰é’®)
+icon - ä¿¡æ¯æ¡†æ˜¾ç¤ºçš„å›¾æ ‡ (1ä¸ºä¿¡æ¯å›¾æ ‡ 2ä¸ºé”™è¯¯å›¾æ ‡)
 
-·µ»ØÖµ int 1=È·¶¨ 2=È¡Ïû
+è¿”å›å€¼ int 1=ç¡®å®š 2=å–æ¶ˆ
 */
 int MoeAPI::MoeMessageBox(string title,string msg,int btn,int icon) {
 	msgA = "type:msgbox&msg:" + msg + "&title:" + title + "&btn:" + to_string(btn) + "&icon:" + to_string(icon)+"&";
@@ -36,10 +36,10 @@ int MoeAPI::MoeMessageBox(string title,string msg,int btn,int icon) {
 	return atoi(SetState().data());
 }
 
-/*ÇĞ»»Ö÷Ìâ
-Path - Ö÷ÌâÎÄ¼ş(.theme)µÄ¾ø¶ÔÂ·¾¶
+/*åˆ‡æ¢ä¸»é¢˜
+Path - ä¸»é¢˜æ–‡ä»¶(.theme)çš„ç»å¯¹è·¯å¾„
 
-·µ»ØÖµ int ¹Ì¶¨Îª 1 ¸Ãº¯ÊıÖ±µ½Ö÷ÌâÓ¦ÓÃÍê³É²Å»á·µ»Ø.
+è¿”å›å€¼ int å›ºå®šä¸º 1 è¯¥å‡½æ•°ç›´åˆ°ä¸»é¢˜åº”ç”¨å®Œæˆæ‰ä¼šè¿”å›.
 */
 int MoeAPI::MoeChangeTheme(string Path) {
 	msgA = "type:changetheme&path:" + Path +"&";
@@ -47,13 +47,13 @@ int MoeAPI::MoeChangeTheme(string Path) {
 	return atoi(SetState().data());
 }
 
-/*Ğ´Èë×¢²á±íÖµ ×Ö·û´®ĞÍ
-Key - ¼ü¸ùÄ¿Â¼ (³£Á¿ HKEY_XXX)
-Path - ×¢²áÂ·¾¶ (²»°üÀ¨¼ü¸ù Èç "SOFTWARE\Microsoft\Windows")
-KeyName - ¼üÃû³Æ
-Value - ÒªĞ´ÈëµÄ×Ö·û´®Öµ
-Type - ÀàĞÍ (³£Á¿ REG_XXX)
-Create - Èç¹ûÒªĞ´ÈëµÄÖµ²»´æÔÚ Ö¸¶¨ÊÇ·ñ×Ô¶¯´´½¨ (1×Ô¶¯´´½¨2²»´¦Àí)
+/*å†™å…¥æ³¨å†Œè¡¨å€¼ å­—ç¬¦ä¸²å‹
+Key - é”®æ ¹ç›®å½• (å¸¸é‡ HKEY_XXX)
+Path - æ³¨å†Œè·¯å¾„ (ä¸åŒ…æ‹¬é”®æ ¹ å¦‚ "SOFTWARE\Microsoft\Windows")
+KeyName - é”®åç§°
+Value - è¦å†™å…¥çš„å­—ç¬¦ä¸²å€¼
+Type - ç±»å‹ (å¸¸é‡ REG_XXX)
+Create - å¦‚æœè¦å†™å…¥çš„å€¼ä¸å­˜åœ¨ æŒ‡å®šæ˜¯å¦è‡ªåŠ¨åˆ›å»º (1è‡ªåŠ¨åˆ›å»º2ä¸å¤„ç†)
 */
 int MoeAPI::MoeRegisterString(int Key, string Path, string KeyName, string Value, int Type, int Create) {
 	msgA = "type;regstr&key:" + to_string(Key) + "&path:" + Path + "&keyname:" + KeyName + "&value:" + Value + "&type:" + to_string(Type) + "&create:" + to_string(Create) + "&";
@@ -61,13 +61,13 @@ int MoeAPI::MoeRegisterString(int Key, string Path, string KeyName, string Value
 	return atoi(SetState().data());
 }
 
-/*Ğ´Èë×¢²á±íÖµ ÕûÊıĞÍ
-Key - ¼ü¸ùÄ¿Â¼ (³£Á¿ HKEY_XXX)
-Path - ×¢²áÂ·¾¶ (²»°üÀ¨¼ü¸ù Èç "SOFTWARE\Microsoft\Windows")
-KeyName - ¼üÃû³Æ
-Value - ÒªĞ´ÈëµÄ×Ö·û´®Öµ
-Type - ÀàĞÍ (³£Á¿ REG_XXX)
-Create - Èç¹ûÒªĞ´ÈëµÄÖµ²»´æÔÚ Ö¸¶¨ÊÇ·ñ×Ô¶¯´´½¨ (1×Ô¶¯´´½¨2²»´¦Àí)
+/*å†™å…¥æ³¨å†Œè¡¨å€¼ æ•´æ•°å‹
+Key - é”®æ ¹ç›®å½• (å¸¸é‡ HKEY_XXX)
+Path - æ³¨å†Œè·¯å¾„ (ä¸åŒ…æ‹¬é”®æ ¹ å¦‚ "SOFTWARE\Microsoft\Windows")
+KeyName - é”®åç§°
+Value - è¦å†™å…¥çš„å­—ç¬¦ä¸²å€¼
+Type - ç±»å‹ (å¸¸é‡ REG_XXX)
+Create - å¦‚æœè¦å†™å…¥çš„å€¼ä¸å­˜åœ¨ æŒ‡å®šæ˜¯å¦è‡ªåŠ¨åˆ›å»º (1è‡ªåŠ¨åˆ›å»º2ä¸å¤„ç†)
 */
 int MoeAPI::MoeRegisterInt(int Key, string Path, string KeyName, int Value, int Type, int Create) {
 	msgA = "type;regint&key:" + to_string(Key) + "&path:" + Path + "&keyname:" + KeyName + "&value:" + to_string(Value) + "&type:" + to_string(Type) + "&create:" + to_string(Create) + "&";
@@ -75,10 +75,10 @@ int MoeAPI::MoeRegisterInt(int Key, string Path, string KeyName, int Value, int 
 	return atoi(SetState().data());
 }
 
-/*ÉèÖÃAeroGlass×´Ì¬
-state - ×´Ì¬("start"-¿ªÆô,"reload"-ÖØÆô,"close"-¹Ø±Õ)
+/*è®¾ç½®AeroGlassçŠ¶æ€
+state - çŠ¶æ€("start"-å¼€å¯,"reload"-é‡å¯,"close"-å…³é—­)
 
-×¢£ºÖ»ÓĞ°²×°AeroGlass´ËÏî²Å»áÓĞĞ§
+æ³¨ï¼šåªæœ‰å®‰è£…AeroGlassæ­¤é¡¹æ‰ä¼šæœ‰æ•ˆ
 */
 int MoeAPI::MoeSetAeroGlass(string state) {
 	msgA = "type:setaero&state:" + state + "&";
@@ -86,9 +86,9 @@ int MoeAPI::MoeSetAeroGlass(string state) {
 	return atoi(SetState().data());
 }
 
-/*È¡AeroGlass°²×°×´Ì¬
+/*å–AeroGlasså®‰è£…çŠ¶æ€
 
-·µ»ØÖµ int 1=Î´°²×° 2=ÒÑ°²×°
+è¿”å›å€¼ int 1=æœªå®‰è£… 2=å·²å®‰è£…
 */
 int MoeAPI::MoeGetAGState(void) {
 	msgA = "type:getaero";
@@ -96,10 +96,10 @@ int MoeAPI::MoeGetAGState(void) {
 	return atoi(SetState().data());
 }
 
-/*Ìí¼Óµ÷ÊÔÊä³ö
-text - ÒªÊä³öµÄÄÚÈİ
+/*æ·»åŠ è°ƒè¯•è¾“å‡º
+text - è¦è¾“å‡ºçš„å†…å®¹
 
-Ğ´ÈëÒ»ÌõÏûÏ¢µ½ÃÈ»¯Ïäµ÷ÊÔ´°¿Ú ½öÃÈ»¯Ïä¿ªÆôµ÷ÊÔ×´Ì¬ÓĞĞ§
+å†™å…¥ä¸€æ¡æ¶ˆæ¯åˆ°èŒåŒ–ç®±è°ƒè¯•çª—å£ ä»…èŒåŒ–ç®±å¼€å¯è°ƒè¯•çŠ¶æ€æœ‰æ•ˆ
 */
 int MoeAPI::MoeCout(string text) {
 	msgA = "type:cout&msg:" + text+ "&";
@@ -107,20 +107,20 @@ int MoeAPI::MoeCout(string text) {
 	return atoi(SetState().data());
 }
 
-/*´´½¨Ò»¸ö´°¿Ú
-Parent - ¸¸´°¿Ú¾ä±ú(Îª0Ôò²»ÖÃ¸¸)
-Style - ´°¿Ú·ç¸ñ(1=À¶É«±ßÏß´°¿Ú(´¿É«)2=ÃÈ»¯ÏäÍ¼Æ¬·ç¸ñ´°¿Ú(Í¼Æ¬))
-Title - ´°¿Ú±êÌâ
-Left - ´°¿Ú×ó±ßÎ»ÖÃ
-Top - ´°¿Ú¶¥±ßÎ»ÖÃ
-width - ´°¿Ú¿í¶È
-height - ´°¿Ú¸ß¶È
-MaxBtn - ÊÇ·ñÆôÓÃ×î´ó»¯°´Å¥
+/*åˆ›å»ºä¸€ä¸ªçª—å£
+Parent - çˆ¶çª—å£å¥æŸ„(ä¸º0åˆ™ä¸ç½®çˆ¶)
+Style - çª—å£é£æ ¼(1=è“è‰²è¾¹çº¿çª—å£(çº¯è‰²)2=èŒåŒ–ç®±å›¾ç‰‡é£æ ¼çª—å£(å›¾ç‰‡))
+Title - çª—å£æ ‡é¢˜
+Left - çª—å£å·¦è¾¹ä½ç½®
+Top - çª—å£é¡¶è¾¹ä½ç½®
+width - çª—å£å®½åº¦
+height - çª—å£é«˜åº¦
+MaxBtn - æ˜¯å¦å¯ç”¨æœ€å¤§åŒ–æŒ‰é’®
 
-×¢£º´°¿Ú´´½¨Íê±Ï½«»áµ÷ÓÃº¯ÊıMoeCreatesComplete
-ÇÒÍ¬Ãû´°¿Ú²»»á´´½¨
+æ³¨ï¼šçª—å£åˆ›å»ºå®Œæ¯•å°†ä¼šè°ƒç”¨å‡½æ•°MoeCreatesComplete
+ä¸”åŒåçª—å£ä¸ä¼šåˆ›å»º
 
-·µ»ØÖµ HWND - ·µ»Ø´´½¨µÄ´°¿Ú¾ä±ú
+è¿”å›å€¼ HWND - è¿”å›åˆ›å»ºçš„çª—å£å¥æŸ„
 */
  HWND MoeAPI::MoeCreateWindow(HWND Parent, int Style, string Title, int Left, int Top, int width, int height, bool MaxBtn) {
 	string max = "1";
@@ -132,16 +132,16 @@ MaxBtn - ÊÇ·ñÆôÓÃ×î´ó»¯°´Å¥
 	return (HWND)atoi(SetState().data());
 }
 
-/*´´½¨Ò»¸öÖ¸¶¨×é¼ş
-Type - ×é¼şÀàĞÍ(³£Á¿ Mox_XXX_Box)
-Parent - ¸¸´°¿Ú¾ä±ú(ÓÃMoeCreateWindow´´½¨µÃµ½µÄ¾ä±ú »òÓÃ±¾ÃüÁî´´½¨×é¼şµÃµ½µÄ¾ä±ú)
-Title - ×é¼şµÄ±êÌâ»òÄÚÈİ»òÍ¼Æ¬
-Left - ×é¼ş×ó±ßÎ»ÖÃ
-Top - ×é¼ş¶¥±ßÎ»ÖÃ
-Width - ×é¼ş¿í¶È
-Height - ×é¼ş¸ß¶È
-Visible - ÊÇ·ñ¿É¼û
-Relation - ¹ØÁª×é¼şµÄ¾ä±ú ²»¹ØÁªÌîĞ´0
+/*åˆ›å»ºä¸€ä¸ªæŒ‡å®šç»„ä»¶
+Type - ç»„ä»¶ç±»å‹(å¸¸é‡ Mox_XXX_Box)
+Parent - çˆ¶çª—å£å¥æŸ„(ç”¨MoeCreateWindowåˆ›å»ºå¾—åˆ°çš„å¥æŸ„ æˆ–ç”¨æœ¬å‘½ä»¤åˆ›å»ºç»„ä»¶å¾—åˆ°çš„å¥æŸ„)
+Title - ç»„ä»¶çš„æ ‡é¢˜æˆ–å†…å®¹æˆ–å›¾ç‰‡
+Left - ç»„ä»¶å·¦è¾¹ä½ç½®
+Top - ç»„ä»¶é¡¶è¾¹ä½ç½®
+Width - ç»„ä»¶å®½åº¦
+Height - ç»„ä»¶é«˜åº¦
+Visible - æ˜¯å¦å¯è§
+Relation - å…³è”ç»„ä»¶çš„å¥æŸ„ ä¸å…³è”å¡«å†™0
 */
  HWND MoeAPI::MoeCreateBox(int Type, HWND Parent, string Title, int Left, int Top, int Width, int Height, bool Visble,HWND Relation) {
 	 string vsb = "1";
@@ -153,11 +153,11 @@ Relation - ¹ØÁª×é¼şµÄ¾ä±ú ²»¹ØÁªÌîĞ´0
 	 return (HWND)atoi(SetState().data());
 }
 
- /*ÖÃ×é¼şÊôĞÔ
- Type - ×é¼şÀàĞÍ(³£Á¿ Mox_Box_XXX ´°¿ÚÇëÌî1)
- SetType - ÒªÉèÖÃµÄÊôĞÔÀàĞÍ(³£Á¿ Moe_BoxType_XXX)
- Value - ÒªÉèÖÃµÄÖµ
- Hwnd - ×é¼ş¾ä±ú
+ /*ç½®ç»„ä»¶å±æ€§
+ Type - ç»„ä»¶ç±»å‹(å¸¸é‡ Mox_Box_XXX çª—å£è¯·å¡«1)
+ SetType - è¦è®¾ç½®çš„å±æ€§ç±»å‹(å¸¸é‡ Moe_BoxType_XXX)
+ Value - è¦è®¾ç½®çš„å€¼
+ Hwnd - ç»„ä»¶å¥æŸ„
  */
 int MoeAPI::MoeSetBoxAttribute(int Type, int SetType,string Value, HWND hwnd) {
 	 msgA = "indexes:" + Indexes + "&type:setbox&types:" + to_string(Type) + "&settype:" + to_string(SetType) + "&value:" + Value + "&hwnd:" + to_string((int)hwnd) + "&";
@@ -165,12 +165,12 @@ int MoeAPI::MoeSetBoxAttribute(int Type, int SetType,string Value, HWND hwnd) {
 	 return atoi(SetState().data());
  }
 
- /*È¡×é¼şÊôĞÔ
- Type - ×é¼şÀàĞÍ(³£Á¿ Mox_Box_XXX ´°¿ÚÇëÌî1)
- GetType - ÒªÈ¡µÄÊôĞÔÀàĞÍ(³£Á¿ Moe_BoxType_XXX)
- Hwnd - ×é¼ş¾ä±ú
+ /*å–ç»„ä»¶å±æ€§
+ Type - ç»„ä»¶ç±»å‹(å¸¸é‡ Mox_Box_XXX çª—å£è¯·å¡«1)
+ GetType - è¦å–çš„å±æ€§ç±»å‹(å¸¸é‡ Moe_BoxType_XXX)
+ Hwnd - ç»„ä»¶å¥æŸ„
 
- ·µ»ØÖµ string - ·µ»ØµÄÖµ Çë²Î¿¼³£Á¿µÄ×¢ÊÍ½øĞĞÊÊµ±×ª»»
+ è¿”å›å€¼ string - è¿”å›çš„å€¼ è¯·å‚è€ƒå¸¸é‡çš„æ³¨é‡Šè¿›è¡Œé€‚å½“è½¬æ¢
  */
  string MoeAPI::MoeGetBoxAttribute(int Type, int GetType, HWND hwnd) {
 	 msgA = "indexes:" + Indexes + "&type:getbox&types:" + to_string(Type) + "&gettype:" + to_string(GetType) + "&hwnd:" + to_string((int)hwnd) + "&";
@@ -178,11 +178,11 @@ int MoeAPI::MoeSetBoxAttribute(int Type, int SetType,string Value, HWND hwnd) {
 	 return SetState();
  }
 
- /*ÖÃÇ¶Èë×ÊÔ´
- ResName - ×ÊÔ´ÀàĞÍÃû³Æ (ÇëÊ¹ÓÃTEXT("")ºêÀ´×ª»»×Ö·û´®)
- ResID - ×ÊÔ´ID (MoePluginTemplate.rcÀïÎÄ¼şµÄ×ÊÔ´ID)
+ /*ç½®åµŒå…¥èµ„æº
+ ResName - èµ„æºç±»å‹åç§° (è¯·ä½¿ç”¨TEXT("")å®æ¥è½¬æ¢å­—ç¬¦ä¸²)
+ ResID - èµ„æºID (MoePluginTemplate.rcé‡Œæ–‡ä»¶çš„èµ„æºID)
 
- ·µ»ØÖµ - string (Êı¾İµÄÖ¸ÕëºÍ´óĞ¡-Ö±½ÓÊ¹ÓÃMoeSetBoxAttributeÉèÖÃÍ¼Æ¬¼´¿É Ò²¿ÉÓÃÓÚÃÈ»¯ÏäÆäËû½Ó¿ÚÊı¾İÌá¹©)
+ è¿”å›å€¼ - string (æ•°æ®çš„æŒ‡é’ˆå’Œå¤§å°-ç›´æ¥ä½¿ç”¨MoeSetBoxAttributeè®¾ç½®å›¾ç‰‡å³å¯ ä¹Ÿå¯ç”¨äºèŒåŒ–ç®±å…¶ä»–æ¥å£æ•°æ®æä¾›)
  */
 string MoeAPI::MoeSetResource(wstring ResName, unsigned long ResID) {
 	 HINSTANCE hDll = hModules;
@@ -194,8 +194,8 @@ string MoeAPI::MoeSetResource(wstring ResName, unsigned long ResID) {
 	 return "pres:" + to_string((int)pRes) + "#psize:" + to_string((int)nResSize) + "#";
  }
 
- /*µ¯³öĞÅÏ¢ÆøÅİ
- Msg - Òªµ¯³öµÄĞÅÏ¢ÄÚÈİ ¿ÉÒÔ»»ĞĞ Èç²»»»ĞĞ»á×Ô¶¯»»ĞĞ
+ /*å¼¹å‡ºä¿¡æ¯æ°”æ³¡
+ Msg - è¦å¼¹å‡ºçš„ä¿¡æ¯å†…å®¹ å¯ä»¥æ¢è¡Œ å¦‚ä¸æ¢è¡Œä¼šè‡ªåŠ¨æ¢è¡Œ
  */
 int MoeAPI::MoeMessageBubble(string Msg) {
 	 msgA = "&type:msgbubble&msg:" + Msg + "&";
@@ -203,9 +203,9 @@ int MoeAPI::MoeMessageBubble(string Msg) {
 	 return atoi(SetState().data());
  }
 
-/*²¥·ÅÉùÒô (Ö»Ö§³ÖWAVºÍMID¸ñÊ½)
-Resource - ÉùÒô×ÊÔ´ ÇëÊ¹ÓÃMoeSetResourceÀ´×ª»»
-Loop - ÊÇ·ñÑ­»·²¥·Å
+/*æ’­æ”¾å£°éŸ³ (åªæ”¯æŒWAVå’ŒMIDæ ¼å¼)
+Resource - å£°éŸ³èµ„æº è¯·ä½¿ç”¨MoeSetResourceæ¥è½¬æ¢
+Loop - æ˜¯å¦å¾ªç¯æ’­æ”¾
 */
 int MoeAPI::MoePlaySound(string Resource,bool Loop) {
 	string lp = "1";
@@ -215,8 +215,8 @@ int MoeAPI::MoePlaySound(string Resource,bool Loop) {
 	return atoi(SetState().data());
 }
 
-/*Í£Ö¹²¥·ÅÉùÒô
-Í£Ö¹ÓÃMoePlaySound²¥·ÅµÄÉùÒô
+/*åœæ­¢æ’­æ”¾å£°éŸ³
+åœæ­¢ç”¨MoePlaySoundæ’­æ”¾çš„å£°éŸ³
 */
 int MoeAPI::MoeStopSound(void) {
 	msgA = "&type:stopsound&";
@@ -224,11 +224,11 @@ int MoeAPI::MoeStopSound(void) {
 	return atoi(SetState().data());
 }
 
-/*ÉèÖÃ×é¼ş²ã¼¶
-Hwnd - ×é¼ş¾ä±ú
-Level - ²ã¼¶ (¿ÉÒÔ¸ºÊı)
+/*è®¾ç½®ç»„ä»¶å±‚çº§
+Hwnd - ç»„ä»¶å¥æŸ„
+Level - å±‚çº§ (å¯ä»¥è´Ÿæ•°)
 
-×¢£ºÉèÖÃMoeCreateBox´´½¨×é¼şµÄ²ã¼¶
+æ³¨ï¼šè®¾ç½®MoeCreateBoxåˆ›å»ºç»„ä»¶çš„å±‚çº§
 */
 int MoeAPI::MoeSetBoxLevel(HWND hwnd, int Level) {
 	msgA = "&type:setboxlevel&hwnd:" + to_string((int)hwnd) + "&level:" + to_string(Level) + "&";
@@ -236,24 +236,33 @@ int MoeAPI::MoeSetBoxLevel(HWND hwnd, int Level) {
 	return atoi(SetState().data());
 }
 
-/*»ñÈ¡×é¼ş²ã¼¶
-Hwnd - ×é¼ş¾ä±ú
+/*è·å–ç»„ä»¶å±‚çº§
+Hwnd - ç»„ä»¶å¥æŸ„
 
-·µ»ØÖµ int ·µ»Ø×é¼ş²ã¼¶
+è¿”å›å€¼ int è¿”å›ç»„ä»¶å±‚çº§
 */
-int MoeAPI::MoeGetBoxLevel(HWND hwnd) {
-	msgA = "&type:getboxlevel&hwnd:" + to_string((int)hwnd) + "&";
+int MoeAPI::MoeGetBoxLevel(HWND Hwnd) {
+	msgA = "&type:getboxlevel&hwnd:" + to_string((int)Hwnd) + "&";
 	::SendMessageA(MoeHwnd, 23232, (WPARAM)State.data(), (LPARAM)msgA.data());
 	return atoi(SetState().data());
 }
 
-/*ÉèÖÃ×ÖÌå×ÊÔ´
-FontName - ×ÖÌåÃû³Æ
-FontSize - ×ÖÌå´óĞ¡
-FontEffect - ×ÖÌåĞ§¹û(1=ÆÕÍ¨×Ö2=·¢¹â×Ö)
+/*è®¾ç½®å­—ä½“èµ„æº
+FontName - å­—ä½“åç§°
+FontSize - å­—ä½“å¤§å°
+FontEffect - å­—ä½“æ•ˆæœ(1=æ™®é€šå­—2=å‘å…‰å­—)
 
-·µ»ØÖµ - string (ÓÃ·¨ÓëMoeSetResourceÏàÍ¬)
+è¿”å›å€¼ - string (ç”¨æ³•ä¸MoeSetResourceç›¸åŒ)
 */
 string MoeAPI::MoeSetFontResource(string FontName, int FontSize, int FontEffect) {
 	return "moeset:font#fname:" + FontName + "#fsize:" + to_string(FontSize) + "#feffect:" + to_string(FontEffect) + "#";
+}
+
+/*é”€æ¯æŒ‡å®šç»„ä»¶
+Hwnd - ç»„ä»¶å¥æŸ„
+*/
+int MoeAPI::MoeClose(HWND Hwnd) {
+	msgA = "&type:close&hwnd:" + to_string((int)Hwnd) + "&";
+	::SendMessageA(MoeHwnd, 23232, (WPARAM)State.data(), (LPARAM)msgA.data());
+	return atoi(SetState().data());
 }
