@@ -1,192 +1,200 @@
-//MoeAPI.h ÃÈ»¯ÏäAPI½Ó¿ÚÉùÃ÷
+//MoeAPI.h èŒåŒ–ç®±APIæ¥å£å£°æ˜
 #pragma once
 #include <string>
 using namespace std;
 
-const int Moe_Box_Button					= 1011;//Moe_°´Å¥
-const int Moe_Box_Lable						= 1012;//Moe_±êÇ©
-const int Moe_Box_Picture					= 1013;//Moe_Í¼Æ¬¿ò
-const int Moe_Box_Edit						= 1014;//Moe_±à¼­¿ò
-const int Moe_Box_Check 					= 1015;//Moe_Ñ¡Ôñ¿ò
-const int Moe_Event_MouseMove				= 1;//Êó±êÒÆ¶¯
-const int Moe_Event_MouseEnter				= 2;//Êó±ê½øÈë
-const int Moe_Event_MouseLeave				= 3;//Êó±êÀë¿ª
-const int Moe_Event_LeftClick				= 4;//Êó±ê×ó¼ü°´ÏÂ
-const int Moe_Event_LeftUp					= 5;//Êó±ê×ó¼üµ¯Æğ
-const int Moe_Event_LeftDobleClick			= 6;//Êó±ê×ó¼üË«»÷
-const int Moe_Event_RightClick				= 7;//Êó±êÓÒ¼ü°´ÏÂ
-const int Moe_Event_RightUp					= 8;//Êó±êÓÒ¼üµ¯Æğ
-const int Moe_Event_RightDobleClick			= 9;//Êó±êÓÒ¼üË«»÷
-const int Moe_Event_Rolling					= 10;//Êó±ê¹öÂÖ¹ö¶¯
-const int Moe_Event_Input					= 11;//×Ö·ûÊäÈë
-const int Moe_Event_Edit					= 12;//±à¼­¿òÄÚÈİ±»¸Ä±ä
-const int Moe_Event_FocusChange				= 13;//×é¼ş½¹µã¸Ä±ä
-const int Moe_Event_Close					= 14;//´°¿Ú¼´½«±»Ïú»Ù
-const int Moe_Event_Move					= 15;//´°¿ÚÎ»ÖÃ±»ÒÆ¶¯
-const int Moe_Event_Position				= 16;//´°¿Ú³ß´ç±»¸Ä±ä
-const int Moe_BoxType_Left					= 1101;//×é¼ş×ó±ßÎ»ÖÃ (·µ»ØÖµ×ªint)
-const int Moe_BoxType_Top					= 1102;//×é¼ş¶¥±ßÎ»ÖÃ (·µ»ØÖµ×ªint)
-const int Moe_BoxType_Width					= 1103;//×é¼ş¿í¶È (·µ»ØÖµ×ªint)
-const int Moe_BoxType_Height				= 1104;//×é¼ş¸ß¶È (·µ»ØÖµ×ªint)
-const int Moe_BoxType_Value					= 1105;//×é¼ş±êÌâ»ò±à¼­¿òÄÚÈİ (·µ»ØÖµstringÎŞĞèĞŞ¸Ä)
-const int Moe_BoxType_Visble				= 1106;//×é¼ş¿ÉÊÓ×´Ì¬ (·µ»ØÖµ×ªint 1=¿ÉÊÓ2=²»¿ÉÊÓ)
-const int Moe_BoxType_InputMode				= 1107;//±à¼­¿òÊäÈë×´Ì¬ ÊäÈë·½Ê½ (0=ÆÕÍ¨×´Ì¬1=½ûÖ¹ÊäÈë2=ÃÜÂëÊäÈë)
-const int Moe_BoxType_PasswordStr			= 1108;//±à¼­¿òÓÃÓÚÕÚÑÚÃÜÂëµÄ×Ö·û (½ö¶Ô±à¼­¿òÊäÈë×´Ì¬=2²ÅÓĞĞ§ Ä¬ÈÏ *)
-const int Moe_BoxType_MultiLine				= 1109;//±à¼­¿òÊÇ·ñ¶àĞĞ (1=¶àĞĞ2=µ¥ĞĞ Ä¬ÈÏ¶àĞĞ)
-const int Moe_BoxType_Check					= 1110;//Ñ¡Ôñ¿òÊÇ·ñÑ¡ÖĞ (1=Ñ¡ÖĞ2=·ÇÑ¡ÖĞ)
-const int Moe_BoxType_Image					= 1111;//Í¼Æ¬¿òµÄÍ¼Æ¬ ÇëÊ¹ÓÃMoeSetResÀ´ÉèÖÃ×ÊÔ´ (×¢ ´ËÎªÖ»Ğ´ ÎŞ·¨ÓÃÓÚ»ñÈ¡)
-const int Moe_BoxType_WindowBackGround		= 1112;//´°¿ÚµÄµ×Í¼ ÇëÊ¹ÓÃMoeSetResÀ´ÉèÖÃ×ÊÔ´ (×¢ ´ËÎªÖ»Ğ´ ÎŞ·¨ÓÃÓÚ»ñÈ¡)
-const int Moe_BoxType_Font					= 1113;//×é¼şµÄ×ÖÌå (×¢ ´ËÎªÖ»Ğ´ ÎŞ·¨ÓÃÓÚ»ñÈ¡)
+const int Moe_Box_Button					= 1011;//Moe_æŒ‰é’®
+const int Moe_Box_Lable						= 1012;//Moe_æ ‡ç­¾
+const int Moe_Box_Picture					= 1013;//Moe_å›¾ç‰‡æ¡†
+const int Moe_Box_Edit						= 1014;//Moe_ç¼–è¾‘æ¡†
+const int Moe_Box_Check 					= 1015;//Moe_é€‰æ‹©æ¡†
+const int Moe_Box_ProgressBar				= 1016;//Moe_è¿›åº¦æ¡
+const int Moe_Event_MouseMove				= 1;//é¼ æ ‡ç§»åŠ¨
+const int Moe_Event_MouseEnter				= 2;//é¼ æ ‡è¿›å…¥
+const int Moe_Event_MouseLeave				= 3;//é¼ æ ‡ç¦»å¼€
+const int Moe_Event_LeftClick				= 4;//é¼ æ ‡å·¦é”®æŒ‰ä¸‹
+const int Moe_Event_LeftUp					= 5;//é¼ æ ‡å·¦é”®å¼¹èµ·
+const int Moe_Event_LeftDobleClick			= 6;//é¼ æ ‡å·¦é”®åŒå‡»
+const int Moe_Event_RightClick				= 7;//é¼ æ ‡å³é”®æŒ‰ä¸‹
+const int Moe_Event_RightUp					= 8;//é¼ æ ‡å³é”®å¼¹èµ·
+const int Moe_Event_RightDobleClick			= 9;//é¼ æ ‡å³é”®åŒå‡»
+const int Moe_Event_Rolling					= 10;//é¼ æ ‡æ»šè½®æ»šåŠ¨
+const int Moe_Event_Input					= 11;//å­—ç¬¦è¾“å…¥
+const int Moe_Event_Edit					= 12;//ç¼–è¾‘æ¡†å†…å®¹è¢«æ”¹å˜
+const int Moe_Event_FocusChange				= 13;//ç»„ä»¶ç„¦ç‚¹æ”¹å˜
+const int Moe_Event_Close					= 14;//çª—å£å³å°†è¢«é”€æ¯
+const int Moe_Event_Move					= 15;//çª—å£ä½ç½®è¢«ç§»åŠ¨
+const int Moe_Event_Position				= 16;//çª—å£å°ºå¯¸è¢«æ”¹å˜
+const int Moe_BoxType_Left					= 1101;//ç»„ä»¶å·¦è¾¹ä½ç½® (è¿”å›å€¼è½¬int)
+const int Moe_BoxType_Top					= 1102;//ç»„ä»¶é¡¶è¾¹ä½ç½® (è¿”å›å€¼è½¬int)
+const int Moe_BoxType_Width					= 1103;//ç»„ä»¶å®½åº¦ (è¿”å›å€¼è½¬int)
+const int Moe_BoxType_Height				= 1104;//ç»„ä»¶é«˜åº¦ (è¿”å›å€¼è½¬int)
+const int Moe_BoxType_Value					= 1105;//ç»„ä»¶æ ‡é¢˜æˆ–ç¼–è¾‘æ¡†å†…å®¹ã€è¿›åº¦æ¡ä½ç½®ç­‰ (è¿”å›å€¼string è¿›åº¦æ¡è½¬int)
+const int Moe_BoxType_Visble				= 1106;//ç»„ä»¶å¯è§†çŠ¶æ€ (è¿”å›å€¼è½¬int 1=å¯è§†2=ä¸å¯è§†)
+const int Moe_BoxType_InputMode				= 1107;//ç¼–è¾‘æ¡†è¾“å…¥çŠ¶æ€ è¾“å…¥æ–¹å¼ (0=æ™®é€šçŠ¶æ€1=ç¦æ­¢è¾“å…¥2=å¯†ç è¾“å…¥)
+const int Moe_BoxType_PasswordStr			= 1108;//ç¼–è¾‘æ¡†ç”¨äºé®æ©å¯†ç çš„å­—ç¬¦ (ä»…å¯¹ç¼–è¾‘æ¡†è¾“å…¥çŠ¶æ€=2æ‰æœ‰æ•ˆ é»˜è®¤ *)
+const int Moe_BoxType_MultiLine				= 1109;//ç¼–è¾‘æ¡†æ˜¯å¦å¤šè¡Œ (1=å¤šè¡Œ2=å•è¡Œ é»˜è®¤å¤šè¡Œ)
+const int Moe_BoxType_Check					= 1110;//é€‰æ‹©æ¡†æ˜¯å¦é€‰ä¸­ (1=é€‰ä¸­2=éé€‰ä¸­)
+const int Moe_BoxType_Image					= 1111;//å›¾ç‰‡æ¡†çš„å›¾ç‰‡ è¯·ä½¿ç”¨MoeSetResæ¥è®¾ç½®èµ„æº (æ³¨ æ­¤ä¸ºåªå†™ æ— æ³•ç”¨äºè·å–)
+const int Moe_BoxType_WindowBackGround		= 1112;//çª—å£çš„åº•å›¾ è¯·ä½¿ç”¨MoeSetResæ¥è®¾ç½®èµ„æº (æ³¨ æ­¤ä¸ºåªå†™ æ— æ³•ç”¨äºè·å–)
+const int Moe_BoxType_Font					= 1113;//ç»„ä»¶çš„å­—ä½“ (æ³¨ æ­¤ä¸ºåªå†™ æ— æ³•ç”¨äºè·å–)
+const int Moe_BoxType_PicStyle				= 1114;//å›¾ç‰‡æ¡†æ ·å¼ (1=å¸¦èƒŒæ™¯è¾¹æ¡†2=ä¸å¸¦èƒŒæ™¯è¾¹æ¡† é»˜è®¤ å¸¦èƒŒæ™¯è¾¹æ¡†)
+const int Moe_BoxType_BarMAX				= 1115;//è¿›åº¦æ¡æœ€å¤§ä½ç½® (è¿”å›å€¼è½¬int)
 
 class MoeAPI {
 public:
 
-	/*MoeĞÅÏ¢¿ò-ÃÈ»¯ÏäĞÅÏ¢¿ò
-	title - ĞÅÏ¢¿òµÄ±êÌâ
-	msg - ĞÅÏ¢¿òÌáÊ¾ÄÚÈİ (²»ÄÜ³¬¹ı120¸öÖĞÎÄ×Ö·û)
-	btn - ĞÅÏ¢¿ò°´Å¥ÀàĞÍ (1ÎªÊÇ·ñÅ¥ 2ÎªÈ·ÈÏÈ¡ÏûÅ¥ 3ÎªÖ»ÓĞÈ·ÈÏ°´Å¥)
-	icon - ĞÅÏ¢¿òÏÔÊ¾µÄÍ¼±ê (1ÎªĞÅÏ¢Í¼±ê 2Îª´íÎóÍ¼±ê)
+	/*Moeä¿¡æ¯æ¡†-èŒåŒ–ç®±ä¿¡æ¯æ¡†
+	title - ä¿¡æ¯æ¡†çš„æ ‡é¢˜
+	msg - ä¿¡æ¯æ¡†æç¤ºå†…å®¹ (ä¸èƒ½è¶…è¿‡120ä¸ªä¸­æ–‡å­—ç¬¦)
+	btn - ä¿¡æ¯æ¡†æŒ‰é’®ç±»å‹ (1ä¸ºæ˜¯å¦é’® 2ä¸ºç¡®è®¤å–æ¶ˆé’® 3ä¸ºåªæœ‰ç¡®è®¤æŒ‰é’®)
+	icon - ä¿¡æ¯æ¡†æ˜¾ç¤ºçš„å›¾æ ‡ (1ä¸ºä¿¡æ¯å›¾æ ‡ 2ä¸ºé”™è¯¯å›¾æ ‡)
 
-	·µ»ØÖµ int 1=È·¶¨ 2=È¡Ïû
+	è¿”å›å€¼ int 1=ç¡®å®š 2=å–æ¶ˆ
 	*/
 	int MoeMessageBox(string, string, int, int);
 
-	/*ÇĞ»»Ö÷Ìâ
-	Path - Ö÷ÌâÎÄ¼ş(.theme)µÄ¾ø¶ÔÂ·¾¶
+	/*åˆ‡æ¢ä¸»é¢˜
+	Path - ä¸»é¢˜æ–‡ä»¶(.theme)çš„ç»å¯¹è·¯å¾„
 
-	·µ»ØÖµ int ¹Ì¶¨Îª 1 ¸Ãº¯ÊıÖ±µ½Ö÷ÌâÓ¦ÓÃÍê³É²Å»á·µ»Ø.
+	è¿”å›å€¼ int å›ºå®šä¸º 1 è¯¥å‡½æ•°ç›´åˆ°ä¸»é¢˜åº”ç”¨å®Œæˆæ‰ä¼šè¿”å›.
 	*/
 	int MoeChangeTheme(string);
 
-	/*Ğ´Èë×¢²á±íÖµ ×Ö·û´®ĞÍ
-	Key - ¼ü¸ùÄ¿Â¼ (³£Á¿ HKEY_XXX)
-	Path - ×¢²áÂ·¾¶ (²»°üÀ¨¼ü¸ù Èç "SOFTWARE\Microsoft\Windows")
-	KeyName - ¼üÃû³Æ
-	Value - ÒªĞ´ÈëµÄ×Ö·û´®Öµ
-	Type - ÀàĞÍ (³£Á¿ REG_XXX)
-	Create - Èç¹ûÒªĞ´ÈëµÄÖµ²»´æÔÚ Ö¸¶¨ÊÇ·ñ×Ô¶¯´´½¨ (1×Ô¶¯´´½¨2²»´¦Àí)
+	/*å†™å…¥æ³¨å†Œè¡¨å€¼ å­—ç¬¦ä¸²å‹
+	Key - é”®æ ¹ç›®å½• (å¸¸é‡ HKEY_XXX)
+	Path - æ³¨å†Œè·¯å¾„ (ä¸åŒ…æ‹¬é”®æ ¹ å¦‚ "SOFTWARE\Microsoft\Windows")
+	KeyName - é”®åç§°
+	Value - è¦å†™å…¥çš„å­—ç¬¦ä¸²å€¼
+	Type - ç±»å‹ (å¸¸é‡ REG_XXX)
+	Create - å¦‚æœè¦å†™å…¥çš„å€¼ä¸å­˜åœ¨ æŒ‡å®šæ˜¯å¦è‡ªåŠ¨åˆ›å»º (1è‡ªåŠ¨åˆ›å»º2ä¸å¤„ç†)
 	*/
 	int MoeRegisterString(int, string, string, string, int, int);
 
-	/*Ğ´Èë×¢²á±íÖµ ÕûÊıĞÍ
-	Key - ¼ü¸ùÄ¿Â¼ (³£Á¿ HKEY_XXX)
-	Path - ×¢²áÂ·¾¶ (²»°üÀ¨¼ü¸ù Èç "SOFTWARE\Microsoft\Windows")
-	KeyName - ¼üÃû³Æ
-	Value - ÒªĞ´ÈëµÄ×Ö·û´®Öµ
-	Type - ÀàĞÍ (³£Á¿ REG_XXX)
-	Create - Èç¹ûÒªĞ´ÈëµÄÖµ²»´æÔÚ Ö¸¶¨ÊÇ·ñ×Ô¶¯´´½¨ (1×Ô¶¯´´½¨2²»´¦Àí)
+	/*å†™å…¥æ³¨å†Œè¡¨å€¼ æ•´æ•°å‹
+	Key - é”®æ ¹ç›®å½• (å¸¸é‡ HKEY_XXX)
+	Path - æ³¨å†Œè·¯å¾„ (ä¸åŒ…æ‹¬é”®æ ¹ å¦‚ "SOFTWARE\Microsoft\Windows")
+	KeyName - é”®åç§°
+	Value - è¦å†™å…¥çš„å­—ç¬¦ä¸²å€¼
+	Type - ç±»å‹ (å¸¸é‡ REG_XXX)
+	Create - å¦‚æœè¦å†™å…¥çš„å€¼ä¸å­˜åœ¨ æŒ‡å®šæ˜¯å¦è‡ªåŠ¨åˆ›å»º (1è‡ªåŠ¨åˆ›å»º2ä¸å¤„ç†)
 	*/
 	int MoeRegisterInt(int, string, string, int, int, int);
 
-	/*ÉèÖÃAeroGlass×´Ì¬
-	state - ×´Ì¬("start"-¿ªÆô,"reload"-ÖØÆô,"close"-¹Ø±Õ)
+	/*è®¾ç½®AeroGlassçŠ¶æ€
+	state - çŠ¶æ€("start"-å¼€å¯,"reload"-é‡å¯,"close"-å…³é—­)
 
-	×¢£ºÖ»ÓĞ°²×°AeroGlass´ËÏî²Å»áÓĞĞ§
+	æ³¨ï¼šåªæœ‰å®‰è£…AeroGlassæ­¤é¡¹æ‰ä¼šæœ‰æ•ˆ
 	*/
 	int MoeSetAeroGlass(string);
 
-	/*È¡AeroGlass°²×°×´Ì¬
+	/*å–AeroGlasså®‰è£…çŠ¶æ€
 
-	·µ»ØÖµ int 1=Î´°²×° 2=ÒÑ°²×°
+	è¿”å›å€¼ int 1=æœªå®‰è£… 2=å·²å®‰è£…
 	*/
 	int MoeGetAGState(void);
 
-	/*Ìí¼Óµ÷ÊÔÊä³ö
-	text - ÒªÊä³öµÄÄÚÈİ
+	/*æ·»åŠ è°ƒè¯•è¾“å‡º
+	text - è¦è¾“å‡ºçš„å†…å®¹
 
-	Ğ´ÈëÒ»ÌõÏûÏ¢µ½ÃÈ»¯Ïäµ÷ÊÔ´°¿Ú ½öÃÈ»¯Ïä¿ªÆôµ÷ÊÔ×´Ì¬ÓĞĞ§
+	å†™å…¥ä¸€æ¡æ¶ˆæ¯åˆ°èŒåŒ–ç®±è°ƒè¯•çª—å£ ä»…èŒåŒ–ç®±å¼€å¯è°ƒè¯•çŠ¶æ€æœ‰æ•ˆ
 	*/
 	int MoeCout(string);
 
-	/*´´½¨Ò»¸ö´°¿Ú
-	Parent - ¸¸´°¿Ú¾ä±ú(Îª0Ôò²»ÖÃ¸¸)
-	Style - ´°¿Ú·ç¸ñ(1=À¶É«±ßÏß´°¿Ú(´¿É«)2=ÃÈ»¯ÏäÍ¼Æ¬·ç¸ñ´°¿Ú(Í¼Æ¬))
-	Title - ´°¿Ú±êÌâ
-	Left - ´°¿Ú×ó±ßÎ»ÖÃ
-	Top - ´°¿Ú¶¥±ßÎ»ÖÃ
-	Width - ´°¿Ú¿í¶È
-	Height - ´°¿Ú¸ß¶È
-	MaxBtn - ÊÇ·ñÆôÓÃ×î´ó»¯°´Å¥
+	/*åˆ›å»ºä¸€ä¸ªçª—å£
+	Parent - çˆ¶çª—å£å¥æŸ„(ä¸º0åˆ™ä¸ç½®çˆ¶)
+	Style - çª—å£é£æ ¼(1=è“è‰²è¾¹çº¿çª—å£(çº¯è‰²)2=èŒåŒ–ç®±å›¾ç‰‡é£æ ¼çª—å£(å›¾ç‰‡))
+	Title - çª—å£æ ‡é¢˜
+	Left - çª—å£å·¦è¾¹ä½ç½®
+	Top - çª—å£é¡¶è¾¹ä½ç½®
+	Width - çª—å£å®½åº¦
+	Height - çª—å£é«˜åº¦
+	MaxBtn - æ˜¯å¦å¯ç”¨æœ€å¤§åŒ–æŒ‰é’®
 
-	×¢£º´°¿Ú´´½¨Íê±Ï½«»áµ÷ÓÃº¯ÊıMoeCreatesComplete
-	ÇÒÍ¬Ãû´°¿Ú²»»á´´½¨
+	æ³¨ï¼šçª—å£åˆ›å»ºå®Œæ¯•å°†ä¼šè°ƒç”¨å‡½æ•°MoeCreatesComplete
+	ä¸”åŒåçª—å£ä¸ä¼šåˆ›å»º
 
-	·µ»ØÖµ HWND - ·µ»Ø´´½¨µÄ´°¿Ú¾ä±ú
+	è¿”å›å€¼ HWND - è¿”å›åˆ›å»ºçš„çª—å£å¥æŸ„
 	*/
 	HWND MoeCreateWindow(HWND, int, string, int, int, int, int, bool);
 
-	/*´´½¨Ò»¸öÖ¸¶¨×é¼ş
-	Type - ×é¼şÀàĞÍ(³£Á¿ Moe_XXX_Box)
-	Parent - ¸¸´°¿Ú¾ä±ú(ÓÃMoeCreateWindow´´½¨µÃµ½µÄ¾ä±ú »òÓÃ±¾ÃüÁî´´½¨×é¼şµÃµ½µÄ¾ä±ú)
-	Title - ×é¼şµÄ±êÌâ»òÄÚÈİ»òÍ¼Æ¬
-	Left - ×é¼ş×ó±ßÎ»ÖÃ
-	Top - ×é¼ş¶¥±ßÎ»ÖÃ
-	Width - ×é¼ş¿í¶È
-	Height - ×é¼ş¸ß¶È
-	Visible - ÊÇ·ñ¿É¼û
-	Relation - ¹ØÁª×é¼şµÄ¾ä±ú ²»¹ØÁªÌîĞ´0
+	/*åˆ›å»ºä¸€ä¸ªæŒ‡å®šç»„ä»¶
+	Type - ç»„ä»¶ç±»å‹(å¸¸é‡ Moe_XXX_Box)
+	Parent - çˆ¶çª—å£å¥æŸ„(ç”¨MoeCreateWindowåˆ›å»ºå¾—åˆ°çš„å¥æŸ„ æˆ–ç”¨æœ¬å‘½ä»¤åˆ›å»ºç»„ä»¶å¾—åˆ°çš„å¥æŸ„)
+	Title - ç»„ä»¶çš„æ ‡é¢˜æˆ–å†…å®¹æˆ–å›¾ç‰‡
+	Left - ç»„ä»¶å·¦è¾¹ä½ç½®
+	Top - ç»„ä»¶é¡¶è¾¹ä½ç½®
+	Width - ç»„ä»¶å®½åº¦
+	Height - ç»„ä»¶é«˜åº¦
+	Visible - æ˜¯å¦å¯è§
+	Relation - å…³è”ç»„ä»¶çš„å¥æŸ„ ä¸å…³è”å¡«å†™0
 	*/
 	HWND MoeCreateBox(int, HWND, string, int, int, int, int, bool, HWND);
 
-	/*ÖÃ×é¼şÊôĞÔ
-	Type - ×é¼şÀàĞÍ
-	SetType - ÒªÉèÖÃµÄÊôĞÔÀàĞÍ(³£Á¿ Moe_BoxType_XXX ´°¿ÚÇëÌî1)
-	Value - ÒªÉèÖÃµÄÖµ
-	Hwnd - ×é¼ş¾ä±ú
+	/*ç½®ç»„ä»¶å±æ€§
+	Type - ç»„ä»¶ç±»å‹
+	SetType - è¦è®¾ç½®çš„å±æ€§ç±»å‹(å¸¸é‡ Moe_BoxType_XXX çª—å£è¯·å¡«1)
+	Value - è¦è®¾ç½®çš„å€¼
+	Hwnd - ç»„ä»¶å¥æŸ„
 	*/
 	int MoeSetBoxAttribute(int, int, string, HWND);
 
-	/*È¡×é¼şÊôĞÔ
-	Type - ×é¼şÀàĞÍ
-	GetType - ÒªÈ¡µÄÊôĞÔÀàĞÍ(³£Á¿ Moe_BoxType_XXX ´°¿ÚÇëÌî1)
-	Hwnd - ×é¼ş¾ä±ú
+	/*å–ç»„ä»¶å±æ€§
+	Type - ç»„ä»¶ç±»å‹
+	GetType - è¦å–çš„å±æ€§ç±»å‹(å¸¸é‡ Moe_BoxType_XXX çª—å£è¯·å¡«1)
+	Hwnd - ç»„ä»¶å¥æŸ„
 
-	·µ»ØÖµ string - ·µ»ØµÄÖµ Çë²Î¿¼³£Á¿µÄ×¢ÊÍ½øĞĞÊÊµ±×ª»»
+	è¿”å›å€¼ string - è¿”å›çš„å€¼ è¯·å‚è€ƒå¸¸é‡çš„æ³¨é‡Šè¿›è¡Œé€‚å½“è½¬æ¢
 	*/
 	string MoeGetBoxAttribute(int, int, HWND);
 
-	/*ÖÃÇ¶Èë×ÊÔ´
-	ResName - ×ÊÔ´ÀàĞÍÃû³Æ (ÇëÊ¹ÓÃTEXT("")ºêÀ´×ª»»×Ö·û´®)
-	ResID - ×ÊÔ´ID (MoePluginTemplate.rcÀïÎÄ¼şµÄ×ÊÔ´ID)
+	/*ç½®åµŒå…¥èµ„æº
+	ResName - èµ„æºç±»å‹åç§° (è¯·ä½¿ç”¨TEXT("")å®æ¥è½¬æ¢å­—ç¬¦ä¸²)
+	ResID - èµ„æºID (MoePluginTemplate.rcé‡Œæ–‡ä»¶çš„èµ„æºID)
 
-	·µ»ØÖµ - string (Êı¾İµÄÖ¸ÕëºÍ´óĞ¡-Ö±½ÓÊ¹ÓÃMoeSetBoxAttributeÉèÖÃÍ¼Æ¬¼´¿É Ò²¿ÉÓÃÓÚÃÈ»¯ÏäÆäËû½Ó¿ÚÊı¾İÌá¹©)
+	è¿”å›å€¼ - string (æ•°æ®çš„æŒ‡é’ˆå’Œå¤§å°-ç›´æ¥ä½¿ç”¨MoeSetBoxAttributeè®¾ç½®å›¾ç‰‡å³å¯ ä¹Ÿå¯ç”¨äºèŒåŒ–ç®±å…¶ä»–æ¥å£æ•°æ®æä¾›)
 	*/
 	string MoeSetResource(wstring, unsigned long);
 
-	/*µ¯³öĞÅÏ¢ÆøÅİ
-	 Msg - Òªµ¯³öµÄĞÅÏ¢ÄÚÈİ ¿ÉÒÔ»»ĞĞ Èç²»»»ĞĞ»á×Ô¶¯»»ĞĞ
+	/*å¼¹å‡ºä¿¡æ¯æ°”æ³¡
+	 Msg - è¦å¼¹å‡ºçš„ä¿¡æ¯å†…å®¹ å¯ä»¥æ¢è¡Œ å¦‚ä¸æ¢è¡Œä¼šè‡ªåŠ¨æ¢è¡Œ
 	 */
 	int MoeMessageBubble(string);
 
-	/*²¥·ÅÉùÒô (Ö»Ö§³ÖWAVºÍMID¸ñÊ½)
-	Resource - ÉùÒô×ÊÔ´ ÇëÊ¹ÓÃMoeSetResourceÀ´×ª»»
+	/*æ’­æ”¾å£°éŸ³ (åªæ”¯æŒWAVå’ŒMIDæ ¼å¼)
+	Resource - å£°éŸ³èµ„æº è¯·ä½¿ç”¨MoeSetResourceæ¥è½¬æ¢
 	*/
 	int MoePlaySound(string,bool);
 
-	/*Í£Ö¹²¥·ÅÉùÒô
-	Í£Ö¹ÓÃMoePlaySound²¥·ÅµÄÉùÒô
+	/*åœæ­¢æ’­æ”¾å£°éŸ³
+	åœæ­¢ç”¨MoePlaySoundæ’­æ”¾çš„å£°éŸ³
 	*/
 	int MoeStopSound(void);
 
-	/*ÉèÖÃ×é¼ş²ã¼¶
-	Hwnd - ×é¼ş¾ä±ú
-	Level - ²ã¼¶ (¿ÉÒÔ¸ºÊı)
+	/*è®¾ç½®ç»„ä»¶å±‚çº§
+	Hwnd - ç»„ä»¶å¥æŸ„
+	Level - å±‚çº§ (å¯ä»¥è´Ÿæ•°)
 
-	×¢£ºÉèÖÃMoeCreateBox´´½¨×é¼şµÄ²ã´Î
+	æ³¨ï¼šè®¾ç½®MoeCreateBoxåˆ›å»ºç»„ä»¶çš„å±‚æ¬¡
 	*/
 	int MoeSetBoxLevel(HWND, int);
 
-	/*»ñÈ¡×é¼ş²ã¼¶
-	Hwnd - ×é¼ş¾ä±ú
+	/*è·å–ç»„ä»¶å±‚çº§
+	Hwnd - ç»„ä»¶å¥æŸ„
 
-	·µ»ØÖµ int ·µ»Ø×é¼ş²ã¼¶
+	è¿”å›å€¼ int è¿”å›ç»„ä»¶å±‚çº§
 	*/
 	int MoeGetBoxLevel(HWND);
 
-	/*ÉèÖÃ×ÖÌå×ÊÔ´
-	FontName - ×ÖÌåÃû³Æ
-	FontSize - ×ÖÌå´óĞ¡
-	FontEffect - ×ÖÌåĞ§¹û(1=ÆÕÍ¨×Ö2=·¢¹â×Ö)
+	/*è®¾ç½®å­—ä½“èµ„æº
+	FontName - å­—ä½“åç§°
+	FontSize - å­—ä½“å¤§å°
+	FontEffect - å­—ä½“æ•ˆæœ(1=æ™®é€šå­—2=å‘å…‰å­—)
 	*/
 	string MoeSetFontResource(string, int, int);
+
+	/*é”€æ¯æŒ‡å®šç»„ä»¶
+	Hwnd - ç»„ä»¶å¥æŸ„
+	*/
+	int MoeClose(HWND);
 };
