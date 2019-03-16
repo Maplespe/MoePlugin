@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,6 +58,9 @@ namespace MoePluginTemplate
         public const int Moe_BoxType_Image                  = 1111;//图片框的图片 请使用MoeSetRes来设置资源 (注 此为只写 无法用于获取)
         public const int Moe_BoxType_WindowBackGround       = 1112;//窗口的底图 请使用MoeSetRes来设置资源 (注 此为只写 无法用于获取)
         public const int Moe_BoxType_Font                   = 1113;//组件的字体 (注 此为只写 无法用于获取)
+        public const int Moe_BoxType_PicStyle               = 1114;//图片框样式 (1=带背景边框2=不带背景边框 默认 带背景边框)
+        public const int Moe_BoxType_BarMAX                 = 1115;//进度条最大位置 (返回值转int)
+
         //------------------------------------------------------//
         [DllImport("user32.dll", EntryPoint = "SendMessageA")]
         public static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
@@ -322,10 +325,10 @@ namespace MoePluginTemplate
         /// 取组件层级
         /// <para>返回值 int 返回组件层级</para>
         /// </summary>
-        /// <param name="hwnd">组件句柄</param>
-        public int MoeGetBoxLevel(IntPtr hwnd)
+        /// <param name="Hwnd">组件句柄</param>
+        public int MoeGetBoxLevel(IntPtr Hwnd)
         {
-            msgA = "&type:getboxlevel&hwnd:" + ((int)hwnd).ToString() + "&";
+            msgA = "&type:getboxlevel&hwnd:" + ((int)Hwnd).ToString() + "&";
             SendMessage(Moev.MoeHwnd, 23232, (IntPtr)State, (IntPtr)Marshal.StringToHGlobalAnsi(msgA).ToPointer());
             return int.Parse(SetState());
         }
@@ -340,6 +343,18 @@ namespace MoePluginTemplate
         public string MoeSetFontResource(string FontName, int FontSize, int FontEffect)
         {
             return "moeset:font#fname:" + FontName + "#fsize:" + FontSize.ToString() + "#feffect:" + FontEffect.ToString() + "#";
+        }
+
+        /// <summary>
+        /// 销毁指定组件或窗口
+        /// </summary>
+        /// <param name="Hwnd">组件句柄</param>
+        /// <returns></returns>
+        public int MoeClose(IntPtr Hwnd)
+        {
+            msgA = "&type:close&hwnd:" + ((int)Hwnd).ToString() + "&";
+            SendMessage(Moev.MoeHwnd, 23232, (IntPtr)State, (IntPtr)Marshal.StringToHGlobalAnsi(msgA).ToPointer());
+            return int.Parse(SetState());
         }
     }
 }
